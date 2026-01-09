@@ -1,9 +1,9 @@
 # RAG Experiment Summary
 
 **Links:**
-- Notebook: [/Users/linlin/Downloads/RAG_exp/notebooks/fiqa_rag_context_optimization.ipynb]
+- Notebook: [https://colab.research.google.com/drive/1FWgkary-Vs4Ok-zdD4TMHOjNwYyvvCX5?usp=sharing]
 - Repository: [https://github.com/yilincaii/RAG_exp)]  
-- Screenshots: [/Users/linlin/Downloads/RAG_exp/visualizations_and_screenshots]
+- Screenshots: [https://github.com/yilincaii/RAG_exp/tree/main/visualizations_and_screenshots]
 
 ---
 
@@ -90,12 +90,11 @@ Recall (>85%) to avoid missing important educational context.
 ---
 
 ## Results
-
 | Variant      | Chunk Size | Retriever k | Reranker top_n | Precision↑ | Recall  | F1 Score↑ | NDCG@5↑ | MRR     | Throughput | Processing Time |
 |--------------|------------|-------------|----------------|-----------|---------|-----------|---------|---------|------------|-----------------|
-| **Baseline** | 256        | 8           | 2              | **43.95%** | 88.33%  | **53.26%** | **20.07%** | **68.06%** | 0.09 s/q   | 64.62s          |
-| Conservative | 128        | 15          | 8              | 38.43%    | **91.67%** | 49.41%    | 19.79%  | 68.06%  | 0.18 s/q   | 33.11s          |
-| Aggressive   | 256        | 12          | 3              | 36.34%    | **91.67%** | 47.22%    | 19.34%  | 65.28%  | 0.21 s/q   | 28.69s          |
+| **Baseline** | 256        | 8           | 2              | **43.95%** | 88.33%  | **53.26%** | **20.07%** | **68.06%** | 0.08 s/q   | 72.23s          |
+| Conservative | 128        | 15          | 8              | 38.43%    | **91.67%** | 49.41%    | 19.79%  | 68.06%  | 0.15 s/q   | 40.60s          |
+| Aggressive   | 256        | 12          | 3              | 36.34%    | **91.67%** | 47.22%    | 19.34%  | 65.28%  | 0.16 s/q   | 37.01s          |
 
 **Key Observations:**
 - Baseline achieved best overall performance: highest Precision, F1, NDCG, and MRR
@@ -157,8 +156,8 @@ from comprehensive but noisy information dumps.
 
 **What it accelerated:**
 - **Parallel execution:** Tested 3 configs simultaneously instead of sequentially, 
-  reducing total experiment time from ~127 seconds (64.62 + 33.11 + 28.69) to 
-  ~90 seconds (limited by preprocessing)—**29% time savings** even on small sample
+  reducing total experiment time from ~150 seconds (72.23 + 40.60 + 37.01) to 
+  ~72 seconds (limited by slowest config)—**52% time savings**s** even on small sample
 - **On full dataset (6,648 queries):** Sequential evaluation would require ~8 hours; 
   RapidFire AI's parallel execution + early stopping via IC Ops could reduce this 
   to ~2-3 hours while testing 10+ configs
@@ -205,22 +204,6 @@ missing the insight that precision-first design (Baseline) outperforms recall-fi
 3. **preprocessing_log.png** - RAG source preprocessing status showing FAISS index 
    construction completion for all three configurations with timing details
 
-**GitHub Repository Structure:**
-```
-fiqa-rag-optimization/
-├── notebooks.ipynb
-│   └── fiqa_rag_context_optimization.ipynb
-├── logs/
-│   └── rapidfire_experiment_log.txt
-├── visualizations_and_screenshots/
-│   ├── ic_ops_realtime_table.png
-│   ├── rag_comprehensive_analysis.png
-│   └── rag_preprocessing_log.png
-├    └── metrics_analysis.png
-│   
-├── summary.md (this document)
-└── README.md
-```
 
 **Data:**
 - Dataset source: FiQA from BEIR benchmark ([https://huggingface.co/datasets/BeIR/fiqa](https://huggingface.co/datasets/BeIR/fiqa))

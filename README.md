@@ -26,3 +26,19 @@ Larger chunks + strict reranking = higher quality answers for students.
 - **Generator:** gpt-4o-mini
 - **Embeddings:** all-MiniLM-L6-v2
 - **Framework:** RapidFire AI
+- **GitHub Repository Structure:**
+```
+fiqa-rag-optimization/
+├── notebooks.ipynb
+│   └── fiqa_rag_context_optimization.ipynb
+├── logs/
+│   └── rapidfire_experiment_log.txt
+├── visualizations_and_screenshots/
+│   ├── ic_ops_realtime_table.png
+│   ├── rag_comprehensive_analysis.png
+│   └── rag_preprocessing_log.png
+├    └── metrics_analysis.png
+│   
+├── summary.md (this document)
+└── README.md
+```
