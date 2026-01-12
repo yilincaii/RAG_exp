@@ -1,0 +1,188 @@
+================================================================================
+RapidFire AI Experiment Log Report
+================================================================================
+
+Experiment Name: exp1-fiqa-rag-colab
+Log File: /content/rapidfireai/logs/exp-context-opt-1768175678/rapidfire.log
+Generated: 2026-01-12 00:03:59.752846
+
+================================================================================
+FULL LOG CONTENTS:
+================================================================================
+
+2026-01-11 23:54:39 | Experiment | INFO | experiment.py:154 | [exp-context-opt-1768175678:Experiment] Experiment exp-context-opt-1768175678 created with Experiment ID: 1 at /content/rapidfireai/rapidfire_experiments/exp-context-opt-1768175678
+2026-01-11 23:54:39 | Experiment | INFO | dispatcher.py:641 | [exp-context-opt-1768175678:Experiment] Started interactive control dispatcher on http://127.0.0.1:8851
+2026-01-11 23:54:39 | Experiment | INFO | dispatcher.py:642 | [exp-context-opt-1768175678:Experiment] Use dispatcher API to dynamically stop/resume/delete/clone pipelines
+2026-01-11 23:54:39 | waitress | INFO | wasyncore.py:449 | Serving on http://127.0.0.1:8851
+2026-01-11 23:54:40 | Experiment | WARNING | experiment.py:346 | [exp-context-opt-1768175678:Experiment] No GPUs available. Be sure to use external APIs for inference.
+2026-01-11 23:54:40 | Experiment | INFO | experiment.py:348 | [exp-context-opt-1768175678:Experiment] Running multi-config experiment with 4 shard(s), (0.0 GPUs per actor, 1.0 CPUs per actor, 1 actors)
+2026-01-11 23:54:40 | Experiment | INFO | experiment.py:357 | [exp-context-opt-1768175678:Experiment] Reset states of existing pipelines/contexts/tasks (marked as failed)
+2026-01-11 23:54:41 | Controller | INFO | controller.py:681 | [exp-context-opt-1768175678:Controller] Dataset sharded into 4 shard(s). Shard sizes: [2, 2, 1, 1]
+2026-01-11 23:54:41 | Controller | INFO | controller.py:686 | [exp-context-opt-1768175678:Controller] Received 3 pipeline configuration(s)
+2026-01-11 23:54:41 | Controller | INFO | controller.py:198 | [exp-context-opt-1768175678:Controller] Found 3 unique RAG context(s)
+2026-01-11 23:54:41 | Controller | INFO | controller.py:209 | [exp-context-opt-1768175678:Controller] Will build new context fb6e1dac...
+2026-01-11 23:54:41 | Controller | INFO | controller.py:209 | [exp-context-opt-1768175678:Controller] Will build new context 97b3d1b5...
+2026-01-11 23:54:41 | Controller | INFO | controller.py:209 | [exp-context-opt-1768175678:Controller] Will build new context 53d4845e...
+2026-01-11 23:54:41 | Controller | INFO | controller.py:235 | [exp-context-opt-1768175678:Controller] Building 3 context(s) in parallel...
+2026-01-11 23:54:41 | Controller | INFO | controller.py:262 | [exp-context-opt-1768175678:Controller] Creating 3 DocProcessingActor(s) for parallel processing
+2026-01-11 23:54:41 | Controller | INFO | controller.py:339 | [exp-context-opt-1768175678:Controller] Submitted 3 build task(s) in parallel
+2026-01-11 23:55:15 | DocProcessingActor | INFO | doc_actor.py:55 | [exp-context-opt-1768175678:DocProcessingActor] DocProcessingActor initialized
+2026-01-11 23:55:15 | DocProcessingActor | INFO | doc_actor.py:55 | [exp-context-opt-1768175678:DocProcessingActor] DocProcessingActor initialized
+2026-01-11 23:55:16 | DocProcessingActor | INFO | doc_actor.py:95 | [exp-context-opt-1768175678:DocProcessingActor] DocProcessingActor: Starting context initialization...
+2026-01-11 23:55:16 | DocProcessingActor | INFO | doc_actor.py:101 | [exp-context-opt-1768175678:DocProcessingActor] Building FAISS index...
+2026-01-11 23:55:16 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:55:16 | DocProcessingActor | INFO | doc_actor.py:95 | [exp-context-opt-1768175678:DocProcessingActor] DocProcessingActor: Starting context initialization...
+2026-01-11 23:55:16 | DocProcessingActor | INFO | doc_actor.py:101 | [exp-context-opt-1768175678:DocProcessingActor] Building FAISS index...
+2026-01-11 23:55:16 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:55:30 | DocProcessingActor | INFO | doc_actor.py:103 | [exp-context-opt-1768175678:DocProcessingActor] FAISS index built successfully
+2026-01-11 23:55:30 | DocProcessingActor | INFO | doc_actor.py:136 | [exp-context-opt-1768175678:DocProcessingActor] Serializing FAISS index for cross-actor sharing...
+2026-01-11 23:55:30 | DocProcessingActor | INFO | doc_actor.py:141 | [exp-context-opt-1768175678:DocProcessingActor] FAISS index serialized: 74332 bytes
+2026-01-11 23:55:30 | DocProcessingActor | INFO | doc_actor.py:162 | [exp-context-opt-1768175678:DocProcessingActor] DocProcessingActor: Context components ready for sharing
+2026-01-11 23:55:30 | DocProcessingActor | INFO | doc_actor.py:103 | [exp-context-opt-1768175678:DocProcessingActor] FAISS index built successfully
+2026-01-11 23:55:30 | DocProcessingActor | INFO | doc_actor.py:136 | [exp-context-opt-1768175678:DocProcessingActor] Serializing FAISS index for cross-actor sharing...
+2026-01-11 23:55:30 | DocProcessingActor | INFO | doc_actor.py:141 | [exp-context-opt-1768175678:DocProcessingActor] FAISS index serialized: 42415 bytes
+2026-01-11 23:55:30 | DocProcessingActor | INFO | doc_actor.py:162 | [exp-context-opt-1768175678:DocProcessingActor] DocProcessingActor: Context components ready for sharing
+2026-01-11 23:55:30 | Controller | INFO | controller.py:360 | [exp-context-opt-1768175678:Controller] Built context 1 (fb6e1dac...) successfully in 49.00s
+2026-01-11 23:55:30 | Controller | INFO | controller.py:360 | [exp-context-opt-1768175678:Controller] Built context 2 (97b3d1b5...) successfully in 49.05s
+2026-01-11 23:55:53 | DocProcessingActor | INFO | doc_actor.py:55 | [exp-context-opt-1768175678:DocProcessingActor] DocProcessingActor initialized
+2026-01-11 23:55:54 | DocProcessingActor | INFO | doc_actor.py:95 | [exp-context-opt-1768175678:DocProcessingActor] DocProcessingActor: Starting context initialization...
+2026-01-11 23:55:54 | DocProcessingActor | INFO | doc_actor.py:101 | [exp-context-opt-1768175678:DocProcessingActor] Building FAISS index...
+2026-01-11 23:55:54 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:55:59 | DocProcessingActor | INFO | doc_actor.py:103 | [exp-context-opt-1768175678:DocProcessingActor] FAISS index built successfully
+2026-01-11 23:55:59 | DocProcessingActor | INFO | doc_actor.py:136 | [exp-context-opt-1768175678:DocProcessingActor] Serializing FAISS index for cross-actor sharing...
+2026-01-11 23:55:59 | DocProcessingActor | INFO | doc_actor.py:141 | [exp-context-opt-1768175678:DocProcessingActor] FAISS index serialized: 42415 bytes
+2026-01-11 23:55:59 | DocProcessingActor | INFO | doc_actor.py:162 | [exp-context-opt-1768175678:DocProcessingActor] DocProcessingActor: Context components ready for sharing
+2026-01-11 23:55:59 | Controller | INFO | controller.py:360 | [exp-context-opt-1768175678:Controller] Built context 3 (53d4845e...) successfully in 78.03s
+2026-01-11 23:55:59 | Controller | INFO | controller.py:401 | [exp-context-opt-1768175678:Controller] Completed parallel context building for 3 context(s)
+2026-01-11 23:55:59 | Controller | INFO | controller.py:706 | [exp-context-opt-1768175678:Controller] Created 1 query processing actors (generic pool)
+2026-01-11 23:55:59 | Controller | INFO | controller.py:717 | [exp-context-opt-1768175678:Controller] Initialized scheduler with 3 pipelines, 1 actors, 4 shards
+2026-01-11 23:55:59 | Controller | INFO | controller.py:877 | [exp-context-opt-1768175678:Controller] Created experiment-wide rate limiter actor for 3 OpenAI pipeline(s) with per-model limits (gpt-4o-mini: 500 RPM, 200000 TPM)
+2026-01-11 23:55:59 | Controller | INFO | controller.py:883 | [exp-context-opt-1768175678:Controller] Starting multi-pipeline inference scheduling...
+2026-01-11 23:55:59 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 1 (Pipeline 1) on actor 0 for shard 0 (1 batches)
+2026-01-11 23:56:25 | QueryProcessingActor-0 | INFO | query_actor.py:139 | [exp-context-opt-1768175678:QueryProcessingActor-0] Initializing new inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:27 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:27 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:27 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:28 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:28 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:28 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:28 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:56:33 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 1 completed shard 0 (1 batches, 4.51s)
+2026-01-11 23:56:33 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 2 (Pipeline 2) on actor 0 for shard 0 (1 batches)
+2026-01-11 23:56:33 | QueryProcessingActor-0 | INFO | query_actor.py:143 | [exp-context-opt-1768175678:QueryProcessingActor-0] Reusing existing inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:33 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:33 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:33 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:33 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:33 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:33 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:33 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:56:36 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 2 completed shard 0 (1 batches, 2.50s)
+2026-01-11 23:56:36 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 3 (Pipeline 3) on actor 0 for shard 0 (1 batches)
+2026-01-11 23:56:36 | QueryProcessingActor-0 | INFO | query_actor.py:143 | [exp-context-opt-1768175678:QueryProcessingActor-0] Reusing existing inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:36 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:36 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:36 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:36 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:36 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:36 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:36 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:56:38 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 3 completed shard 0 (1 batches, 2.50s)
+2026-01-11 23:56:38 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 1 (Pipeline 1) on actor 0 for shard 1 (1 batches)
+2026-01-11 23:56:38 | QueryProcessingActor-0 | INFO | query_actor.py:143 | [exp-context-opt-1768175678:QueryProcessingActor-0] Reusing existing inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:38 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:38 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:38 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:39 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:39 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:39 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:39 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:56:41 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 1 completed shard 1 (1 batches, 2.00s)
+2026-01-11 23:56:41 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 2 (Pipeline 2) on actor 0 for shard 1 (1 batches)
+2026-01-11 23:56:41 | QueryProcessingActor-0 | INFO | query_actor.py:143 | [exp-context-opt-1768175678:QueryProcessingActor-0] Reusing existing inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:41 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:41 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:41 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:41 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:41 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:41 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:41 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:56:43 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 2 completed shard 1 (1 batches, 2.00s)
+2026-01-11 23:56:43 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 3 (Pipeline 3) on actor 0 for shard 1 (1 batches)
+2026-01-11 23:56:43 | QueryProcessingActor-0 | INFO | query_actor.py:143 | [exp-context-opt-1768175678:QueryProcessingActor-0] Reusing existing inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:43 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:43 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:43 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:44 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:44 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:44 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:44 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:56:46 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 3 completed shard 1 (1 batches, 2.01s)
+2026-01-11 23:56:46 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 1 (Pipeline 1) on actor 0 for shard 2 (1 batches)
+2026-01-11 23:56:46 | QueryProcessingActor-0 | INFO | query_actor.py:143 | [exp-context-opt-1768175678:QueryProcessingActor-0] Reusing existing inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:46 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:46 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:46 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:46 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:46 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:46 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:46 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:56:48 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 1 completed shard 2 (1 batches, 2.00s)
+2026-01-11 23:56:48 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 2 (Pipeline 2) on actor 0 for shard 2 (1 batches)
+2026-01-11 23:56:48 | QueryProcessingActor-0 | INFO | query_actor.py:143 | [exp-context-opt-1768175678:QueryProcessingActor-0] Reusing existing inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:48 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:48 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:48 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:49 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:49 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:49 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:49 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:56:50 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 2 completed shard 2 (1 batches, 1.50s)
+2026-01-11 23:56:50 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 3 (Pipeline 3) on actor 0 for shard 2 (1 batches)
+2026-01-11 23:56:50 | QueryProcessingActor-0 | INFO | query_actor.py:143 | [exp-context-opt-1768175678:QueryProcessingActor-0] Reusing existing inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:50 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:50 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:50 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:51 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:51 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:51 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:51 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:56:53 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 3 completed shard 2 (1 batches, 2.00s)
+2026-01-11 23:56:53 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 1 (Pipeline 1) on actor 0 for shard 3 (1 batches)
+2026-01-11 23:56:53 | QueryProcessingActor-0 | INFO | query_actor.py:143 | [exp-context-opt-1768175678:QueryProcessingActor-0] Reusing existing inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:53 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:53 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:53 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:53 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:53 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:53 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:53 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:56:55 | Controller | INFO | controller.py:951 | [exp-context-opt-1768175678:Controller] Pipeline 1 completed all 4 shards
+2026-01-11 23:56:55 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 1 completed shard 3 (1 batches, 2.00s)
+2026-01-11 23:56:55 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 2 (Pipeline 2) on actor 0 for shard 3 (1 batches)
+2026-01-11 23:56:55 | QueryProcessingActor-0 | INFO | query_actor.py:143 | [exp-context-opt-1768175678:QueryProcessingActor-0] Reusing existing inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:55 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:55 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:55 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:56 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:56 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:56 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:56 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:56:58 | Controller | INFO | controller.py:951 | [exp-context-opt-1768175678:Controller] Pipeline 2 completed all 4 shards
+2026-01-11 23:56:58 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 2 completed shard 3 (1 batches, 2.01s)
+2026-01-11 23:56:58 | Controller | INFO | controller.py:1105 | [exp-context-opt-1768175678:Controller] Scheduling pipeline 3 (Pipeline 3) on actor 0 for shard 3 (1 batches)
+2026-01-11 23:56:58 | QueryProcessingActor-0 | INFO | query_actor.py:143 | [exp-context-opt-1768175678:QueryProcessingActor-0] Reusing existing inference engine (config hash: 5ecb0168)
+2026-01-11 23:56:58 | QueryProcessingActor-0 | INFO | query_actor.py:162 | [exp-context-opt-1768175678:QueryProcessingActor-0] Using CPU-based FAISS for retrieval (avoids GPU memory conflicts)
+2026-01-11 23:56:58 | QueryProcessingActor-0 | INFO | query_actor.py:169 | [exp-context-opt-1768175678:QueryProcessingActor-0] Deserializing FAISS index for this actor...
+2026-01-11 23:56:58 | sentence_transformers.SentenceTransformer | INFO | SentenceTransformer.py:227 | Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 23:56:58 | QueryProcessingActor-0 | INFO | query_actor.py:178 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated embedding function: HuggingFaceEmbeddings
+2026-01-11 23:56:58 | QueryProcessingActor-0 | INFO | query_actor.py:187 | [exp-context-opt-1768175678:QueryProcessingActor-0] Created independent FAISS vector store for this actor
+2026-01-11 23:56:58 | QueryProcessingActor-0 | INFO | query_actor.py:196 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated retriever with search_type=similarity
+2026-01-11 23:56:58 | QueryProcessingActor-0 | INFO | query_actor.py:218 | [exp-context-opt-1768175678:QueryProcessingActor-0] Recreated RAG spec with retriever and template
+2026-01-11 23:57:00 | Controller | INFO | controller.py:951 | [exp-context-opt-1768175678:Controller] Pipeline 3 completed all 4 shards
+2026-01-11 23:57:00 | Controller | INFO | controller.py:1003 | [exp-context-opt-1768175678:Controller] Pipeline 3 completed shard 3 (1 batches, 1.50s)
+2026-01-11 23:57:00 | Controller | INFO | controller.py:1069 | [exp-context-opt-1768175678:Controller] All pipelines completed all shards!
+2026-01-11 23:57:00 | Controller | INFO | controller.py:534 | [exp-context-opt-1768175678:Controller] Computing final metrics for all pipelines...
+2026-01-11 23:57:00 | Controller | INFO | controller.py:639 | [exp-context-opt-1768175678:Controller] Pipeline 1 (Pipeline 1) completed successfully
+2026-01-11 23:57:00 | Controller | INFO | controller.py:639 | [exp-context-opt-1768175678:Controller] Pipeline 2 (Pipeline 2) completed successfully
+2026-01-11 23:57:00 | Controller | INFO | controller.py:639 | [exp-context-opt-1768175678:Controller] Pipeline 3 (Pipeline 3) completed successfully
