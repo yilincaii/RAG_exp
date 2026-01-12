@@ -3,8 +3,10 @@
 **Links:**
 - **Notebook:** [FiQA RAG Colab](https://colab.research.google.com/drive/...)  
 - **Repo:** [GitHub - RAG Experiment](https://github.com/yilincaii/RAG_exp)
-- **Screenshots:** `ic_ops_realtime_table.png`, `rag_comprehensive_analysis.png`, 
-  `metrics_analysis.png`, `rag_experiment_analysis`
+- **Screenshots:** [ic_ops_realtime_table.png] (https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/ic_ops_realtime_table.png), 
+- [rag_comprehensive_analysis.png](https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/rag_comprehensive_analysis.png), 
+  [metrics_analysis.png](https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/metrics_analysis.png),
+   [rag_experiment_analysis](https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/rag_experiment_analysis.png)
 
 ---
 
