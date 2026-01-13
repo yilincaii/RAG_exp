@@ -1,12 +1,13 @@
 # RAG Experiment Summary
 
 **Links:**
-- **Notebook:** [FiQA RAG Colab](https://colab.research.google.com/drive/...)  
+- **Notebook:** [FiQA RAG Colab](https://colab.research.google.com/github/yilincaii/RAG_exp/blob/main/notebooks/fiqa_rag_context_optimization.ipynb)  
 - **Repo:** [GitHub - RAG Experiment](https://github.com/yilincaii/RAG_exp)
-- **Screenshots:** [ic_ops_realtime_table.png] (https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/ic_ops_realtime_table.png), 
-- [rag_comprehensive_analysis.png](https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/rag_comprehensive_analysis.png), 
-  [metrics_analysis.png](https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/metrics_analysis.png),
-   [rag_experiment_analysis](https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/rag_experiment_analysis.png)
+- **Screenshots:** 
+  - [IC Ops Real-time Table](https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/ic_ops_realtime_table.png)
+  - [RAG Comprehensive Analysis](https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/rag_comprehensive_analysis.png)
+  - [Metrics Analysis](https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/metrics_analysis.png)
+  - [RAG Experiment Analysis](https://github.com/yilincaii/RAG_exp/blob/main/visualizations_and_screenshots/rag_experiment_analysis.png)
 
 ---
 
@@ -47,7 +48,7 @@ learning.
   - Baseline: k=8 | Conservative: k=15 | Aggressive: k=12
   - Search type: Similarity (cosine)
 
-- **Reranker (optional):**
+- **Reranker:**
   - Model: cross-encoder/ms-marco-MiniLM-L6-v2 (CPU-based)
   - Baseline: top_n=2 | Conservative: top_n=8 | Aggressive: top_n=3
 
@@ -100,9 +101,9 @@ may inject marginally relevant information.
 
 | Variant | Key Change(s) | Precision | Recall | F1 Score | NDCG@5 | MRR | Time | Throughput | Notes |
 |---------|---------------|-----------|--------|----------|--------|-----|------|------------|-------|
-| **Baseline** | 256 chunks, k=8, top_n=2 | **43.95%** | 88.33% | **53.26%** | **20.07%** | **68.06%** | 60.65s | 0.10 s/q | Best overall: highest precision & F1 |
-| Conservative | 128 chunks, k=15, top_n=8 | 38.43% | **91.67%** | 49.41% | 19.79% | **68.06%** | 27.19s | 0.22 s/q | Highest recall but lower precision |
-| Aggressive | 256 chunks, k=12, top_n=3 | 36.34% | **91.67%** | 47.22% | 19.34% | 65.28% | 24.26s | 0.25 s/q | Fast but lowest precision |
+| **Baseline** | 256 chunks, k=8, top_n=2 | **43.95%** | 88.33% | **53.26%** | **20.07%** | **68.06%** | 63.17s | 0.10 q/s | Best overall: highest precision & F1 |
+| Conservative | 128 chunks, k=15, top_n=8 | 38.43% | **91.67%** | 49.41% | 19.79% | **68.06%** | 50.16s | 0.12 q/s | Highest recall but lower precision |
+| Aggressive | 256 chunks, k=12, top_n=3 | 36.34% | **91.67%** | 47.22% | 19.34% | 65.28% | 44.16s | 0.14 q/s | Fast but lowest precision |
 
 **Key Observations:**
 - **Baseline wins** on accuracy-critical metrics (Precision +5.52%, F1 +3.85%)  
@@ -127,7 +128,7 @@ Baseline (chunk_size=256, retriever_k=8, reranker_top_n=2)
 ### **Tradeoffs (Latency/Tokens/Failure Modes):**
 - **Recall sacrifice:** -3.34 percentage points vs. Conservative/Aggressive (88.33% vs. 
   91.67%)—acceptable for educational use where accuracy > exhaustiveness
-- **Slower execution:** 60.65s vs. 27.19s/24.26s, but this is due to OpenAI API 
+- **Slower execution:** 63.17s vs. 50.16s/44.16s, but this is due to OpenAI API 
   variance, not retrieval complexity  
 - **Token cost:** Identical across configs (same generator settings)
 - **Failure mode:** May miss rare but relevant documents due to strict top_n=2 
@@ -142,21 +143,23 @@ sacrifice is strategically sound: **44% precision with 88% recall beats 36% prec
 with 92% recall** for student-facing applications where misinformation undermines 
 trust.
 
+---
+
 ## IC Ops Implementation Note
    
-   **Current Status:** IC Ops panel initialized but not actively used due to 
-   small dataset (6 queries, 60s runtime).
-   
-   **Evidence:** Screenshots show IC Ops interface ready with Stop/Resume/Clone 
-   buttons available for all 3 configurations.
-   
-   **At Scale Application:** 
-   On full FiQA dataset (6,648 queries):
-   - Stop poor performers after 30% data (saves 16 hours)
-   - Clone-Modify winner config for fine-tuning
-   - Estimated 40-60% cost reduction
-   
-   [See IC Ops Panel Screenshot](visualizations_and_screenshots/ic_ops_realtime_table.png)
+**Current Status:** IC Ops panel initialized but not actively used due to 
+small dataset (6 queries, 63-second runtime).
+
+**Evidence:** Screenshots show IC Ops interface ready with Stop/Resume/Clone 
+buttons available for all 3 configurations.
+
+**At Scale Application:** 
+On full FiQA dataset (6,648 queries):
+- Stop poor performers after 30% data (saves ~16 hours)
+- Clone-Modify winner config for fine-tuning
+- Estimated 40-60% cost reduction
+
+[See IC Ops Panel Screenshot](visualizations_and_screenshots/ic_ops_realtime_table.png)
 
 ---
 
@@ -164,7 +167,7 @@ trust.
 
 ### **What It Accelerated:**
 - **Parallel execution:** Tested 3 configs simultaneously instead of sequentially, 
-  reducing total time from **112 seconds → 60 seconds** (46% savings). At scale (6,648 
+  reducing total time from **157 seconds → 63 seconds** (60% savings). At scale (6,648 
   queries), this means **24 hours → 8 hours** for 3 configs, enabling **10-15 configs 
   in the same budget** for 5-7x productivity gain.
 - **Zero boilerplate code:** The `run_evals()` API eliminated ~200 lines of manual 
@@ -180,7 +183,7 @@ trust.
   saving **~5 hours compute + API costs per eliminated config**.
 
 ### **Net Impact (Time Saved / Coverage / Confidence):**
-- **Time efficiency:** 46% faster even on 6 queries; at scale, **7x productivity gain** 
+- **Time efficiency:** 60% faster even on 6 queries; at scale, **5-7x productivity gain** 
   via parallelization + IC Ops
 - **Cost optimization:** Early stopping on full dataset (6,648 queries) could save 
   **40-60% of token costs** by eliminating poor configs after 2,000 queries (30% data)

@@ -22,10 +22,10 @@ EXPERIMENT RESULTS
 
 Complete Performance Comparison:
 
-Strategy        Precision  Recall   F1 Score  NDCG@5   MRR
-Baseline        43.95%     88.33%   53.26%    20.07%   68.06%  ← BEST
-Conservative    38.43%     91.67%   49.41%    19.79%   68.06%
-Aggressive      36.34%     91.67%   47.22%    19.34%   65.28%
+Strategy        Precision  Recall   F1 Score  NDCG@5   MRR      Time
+Baseline        43.95%     88.33%   53.26%    20.07%   68.06%   63.17s  ← BEST
+Conservative    38.43%     91.67%   49.41%    19.79%   68.06%   50.16s
+Aggressive      36.34%     91.67%   47.22%    19.34%   65.28%   44.16s
 
 Best Configuration (Baseline):
 - Chunk Size: 256 tokens (32-token overlap)
@@ -64,9 +64,9 @@ QUICK START
 
 Option 1: Google Colab (Recommended)
 Open this link in your browser (free T4 GPU):
-https://colab.research.google.com/github/yilincaii/RAG_exp/blob/main/rf_colab_rag_fiqa_tutorial.ipynb
+https://colab.research.google.com/github/yilincaii/RAG_exp/blob/main/notebooks/fiqa_rag_context_optimization.ipynb
 
-Runtime: ~60 seconds for 6 queries
+Runtime: ~63 seconds for 6 queries
 
 Option 2: Local Setup
 git clone https://github.com/yilincaii/RAG_exp.git
@@ -75,7 +75,7 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install rapidfireai
 rapidfireai init --evals
 export OPENAI_API_KEY='your-api-key-here'
-jupyter notebook rf_colab_rag_fiqa_tutorial.ipynb
+jupyter notebook notebooks/fiqa_rag_context_optimization.ipynb
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -87,12 +87,12 @@ KEY INSIGHTS
    reranking threshold and chunk size, not the retriever itself.
 
 2. API Latency Dominates Pipeline Speed
-   Despite simplest retrieval (k=8, top_n=2), Baseline was slowest (60.65s) due 
+   Despite simplest retrieval (k=8, top_n=2), Baseline was slowest (63.17s) due 
    to OpenAI API variance. Throughput optimization requires batching generation 
    requests, not simplifying retrieval.
 
 3. RapidFire AI Enables 5-7x Productivity at Scale
-   This experiment (6 queries): 46% faster than sequential
+   This experiment (6 queries): 60% faster than sequential (157s → 63s)
    Full FiQA (6,648 queries): 24 hours → 8 hours with parallelization
    With IC Ops: Test 10-15 configs in time budget of 2-3 configs
 
@@ -123,7 +123,7 @@ Dataset:
 RAPIDFIRE AI'S CONTRIBUTION
 
 What It Accelerated:
-- Parallel Execution: Tested 3 configs simultaneously (46% time savings)
+- Parallel Execution: Tested 3 configs simultaneously (60% time savings)
 - Zero Boilerplate: Eliminated ~200 lines of batching/metrics code
 - Real-Time Metrics: Online aggregation with confidence intervals
 
@@ -134,9 +134,9 @@ Key Insights Surfaced:
 
 Net Impact:
                   This Experiment    Full-Scale Projection
-Time saved        46% (52s)          67% (16 hours)
+Time saved        60% (94s)          67% (16 hours)
 Configs tested    3 simultaneous     10-15 in same budget
-Productivity      1.9x               5-7x
+Productivity      2.5x               5-7x
 
 Without RapidFire AI: Would've tested only 1-2 configs, missing the counterintuitive 
 finding that precision-first design beats "more context = better answers" for 
@@ -144,10 +144,28 @@ educational RAG.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+VIEWING METRICS ARTIFACTS
+
+The experiment metrics are stored in MLflow format for reproducibility.
+
+**To view locally:**
+```bash
+cd RAG_exp
+mlflow ui
+```
+Then open http://localhost:5000 in your browser.
+
+**What you'll see:**
+- 3 experiment runs (Baseline, Conservative, Aggressive)
+- Interactive metrics plots: Precision, Recall, F1_Score, NDCG_at_5, MRR
+- Configuration parameters: chunk_size, retriever_k, reranker_top_n
+- 4 data points per metric (representing 4 shards/evaluation steps)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 DOCUMENTATION
 
-- Detailed Experiment Summary: RAG-Experiment-Summary.md
-- Key Findings: Conclusion.md
+- Detailed Experiment Summary: summary.md
 - RapidFire AI Docs: https://oss-docs.rapidfire.ai/
 - Dataset: https://huggingface.co/datasets/BeIR/fiqa
 - Competition: http://www.rapidfire.ai/university-program
