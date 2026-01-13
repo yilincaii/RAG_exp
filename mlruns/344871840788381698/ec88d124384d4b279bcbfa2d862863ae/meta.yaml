@@ -1,0 +1,14 @@
+artifact_uri: file:///content/mlruns/344871840788381698/ec88d124384d4b279bcbfa2d862863ae/artifacts
+end_time: 1768267208119
+entry_point_name: ''
+experiment_id: '344871840788381698'
+lifecycle_stage: active
+run_id: ec88d124384d4b279bcbfa2d862863ae
+run_name: Baseline
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1768267208093
+status: 3
+tags: []
+user_id: root

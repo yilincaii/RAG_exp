@@ -1,0 +1,14 @@
+artifact_uri: file:///content/mlruns/344871840788381698/9b42f3a346c546d5a31dc0c26af2fb41/artifacts
+end_time: 1768267208177
+entry_point_name: ''
+experiment_id: '344871840788381698'
+lifecycle_stage: active
+run_id: 9b42f3a346c546d5a31dc0c26af2fb41
+run_name: Aggressive
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1768267208149
+status: 3
+tags: []
+user_id: root
